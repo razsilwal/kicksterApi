@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, SAFE_METHODS
 from django.contrib.auth.models import User
+from decouple import config
 
 # Create your views here.
 
@@ -87,7 +88,7 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = UserSerializer
     permission_classes = [IsAdminUser]
 
-KHALTI_SECRET_KEY = 'test_public_key_99697f8fd7fc41e8b922cb5f84cf4e82'
+KHALTI_SECRET_KEY = config("KHALTI_SECRET_KEY")
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
