@@ -1,1 +1,1 @@
-web: gunicorn shoesstore.wsgi
+web: gunicorn kickster.wsgi

@@ -25,7 +25,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,9 +84,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'shoestore.wsgi.application'
+WSGI_APPLICATION = 'kickster.wsgi.application'
 
-ALLOWED_HOSTS = ['*']  # Or better: ['your-app-name.onrender.com']
+ALLOWED_HOSTS = ['kickster.onrender.com']  # Or better: ['your-app-name.onrender.com']
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -145,6 +145,8 @@ import os
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
