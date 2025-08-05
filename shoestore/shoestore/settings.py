@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kickster.wsgi.application'
+WSGI_APPLICATION = 'shoestore.wsgi.application'
 
 ALLOWED_HOSTS = ['kickster.onrender.com']  # Or better: ['your-app-name.onrender.com']
 
